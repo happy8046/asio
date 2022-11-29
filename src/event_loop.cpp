@@ -15,7 +15,6 @@ EventLoop::EventLoop()
 {
     int wakeup_fd = ::eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
 
-    LOG_INFO("wakeup fd:%d", wakeup_fd);
     wakeup_channel_->set_fd(wakeup_fd);
     wakeup_channel_->set_read_callback(std::bind(&EventLoop::handle_read, this));
     wakeup_channel_->enable_reading();

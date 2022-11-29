@@ -12,12 +12,10 @@ Epoll::Epoll()
   : epoll_fd_(::epoll_create1(EPOLL_CLOEXEC)),
     event_list_(kInitEventListSize)  
 {
-    LOG_INFO("Epoll create.");
 }
 
 Epoll::~Epoll()
 {
-    LOG_INFO("Epoll delete.");
     ::close(epoll_fd_);
 }
 

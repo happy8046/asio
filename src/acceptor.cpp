@@ -61,7 +61,6 @@ void Acceptor::handle_read()
 
     if (connfd > 0)
     {
-        LOG_INFO("new connect ip=%s, port=%d", inet_ntoa(addr.sin_addr), addr.sin_port);
         if (new_connection_cb_)
         {
             new_connection_cb_(connfd, addr);
